@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PracticeApi.Models.employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="color:crimson">Employees List in Database</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="color:darkblue">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.employee_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.first_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hire_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.department_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.employee_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hire_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.department_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.employee_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.employee_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.employee_id })
+        </td>
+    </tr>
+}
+
+</table>
